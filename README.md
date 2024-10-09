@@ -33,7 +33,7 @@
       <br /><small>Desenvolvedora</small>
     </td>
      <td align="center">
-      <img src="https://github.com/Julia-Khristina/EscapEtec/blob/main/readme/11.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 3"/>
+      <img src="https://github.com/Gigiovh/-tica-s-game/blob/main/assets/Captura%20de%20tela%202024-10-09%20204242.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 3"/>
       <br /><a href="https://github.com/Lale-Araujo"><b>Maria Eduarda</b></a>
       <br /><small>Desenvolvedora</small>
     </td>
