@@ -18,8 +18,8 @@
 <table>
   <tr>
     <td align="center">
-      <img src="https://github.com/Julia-Khristina/EscapEtec/blob/main/readme/12.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 1"/>
-      <br /><a href="https://github.com/Hillary-Medeiros"><b>Beatriz Oliveira</b></a>
+    <img src="https://github.com/beaxx.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 1"/>
+      <br /><a href="https://github.com/beaxx"><b>Beatriz Oliveira</b></a>
       <br /><small>Desenvolvedora</small>
     </td>
     <td align="center">
