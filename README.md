@@ -10,8 +10,8 @@
 <h3 style="color: #e4a002">Paleta de cores</h3>
  <img src="#" alt="paleta de cor" width="450px">
 <h3>Linguagens Utilizadas</h3>
-  <a href="https://www.construct.net/en">
-    <img src="https://github.com/Julia-Khristina/EscapEtec/blob/main/readme/logo.png " height="100px" />
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=html,css,javascript" />
   </a>
 
 <h2>🧑‍💻 Autores</h2>
