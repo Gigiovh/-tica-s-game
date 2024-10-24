@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("../img/Fundo2.png");
+    background-position: bottom;
+    position: relative;
+}
+
+.fase1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.vilura {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 200px;
+    height: auto;
+    transform: translateX(-50%);
+}
+
+.falling-litter {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: -50px; /* Começa fora da tela */
+}
+
+#lixo1 {
+    background-image: url('img1/lixo1.png');
+}
+
+#lixo2 {
+    background-image: url('img1/lixo2.png');
+}
+
+#lixo3 {
+    background-image: url('img1/lixo3.png');
+}
+
+.score {
+    position: absolute;
+    top: 20px; /* Distância do topo */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.falling-fish {
+    width: 125px; /* Ajuste o tamanho do peixe conforme necessário */
+    height: 75px; /* Ajuste o tamanho do peixe conforme necessário */
+    background-size: contain; /* Altera para cover para preencher o elemento */
+    background-repeat: no-repeat; /* Evita repetição */
+    position: absolute;
+    top: -50px; /* Começa fora da tela */
+}
+
+
+.point-indicator {
+    position: absolute;
+    font-size: 40px;
+    color: #ffffff; /* Cor dourada */
+    pointer-events: none; /* Para que não interfira em outros elementos */
+    animation: float 1s ease forwards; /* Animação de flutuação */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+}
+
+.blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    display: block; /* Exibe o fundo com blur */
+}
+
+.start-container {
+    display: flex;
+    flex-direction: column; /* Mantenha a direção vertical */
+    align-items: flex-start; /* Alinhamento à esquerda */
+    justify-content: flex-start; /* Alinhamento no topo */
+    width: 500px; /* Largura fixa */
+    height: 320px; /* Altura fixa para manter o formato quadrado */
+    z-index: 2; /* Para ficar acima do fundo com blur */
+    background-color: rgba(204, 204, 204, 0.7); /* Cor de fundo com transparência */
+    border-radius: 15px; /* Bordas arredondadas, se desejar */
+    padding: 20px; /* Espaçamento interno */
+    position: relative; /* Para poder usar posições absolutas internas */
+}
+
+.start-container h1 {
+    font-size: 2rem; /* Tamanho da fonte */
+    color: #ffffff; /* Cor do texto */
+    text-shadow: 2px 2px 4px #08148397; /* Sombra do texto */
+    margin: 0; /* Remove margens para controle total da posição */
+    position: absolute; /* Permite o posicionamento em relação ao container */
+    margin-top: 10%;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.start-container .vilura {
+    width: 200px; /* Ajuste o tamanho da imagem do Vilura conforme necessário */
+    height: auto;
+    position: absolute; /* Permite o posicionamento em relação ao container */
+    bottom: 10px; /* Ajuste a posição vertical */
+    left: 350px; /* Ajuste a posição horizontal */
+}
+
+#startButton {
+  
+    font-family:cursive;
+    padding: 10px 20px;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute; /* Permite o posicionamento em relação ao container */
+    bottom: 80px; /* Ajuste a posição vertical */
+    left: 70px; /* Ajuste a posição horizontal */
+    border: none;
+    border-radius: 15px;
+    background-color: #081483;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+#startButton:hover {
+    font-family: cursive;
+    background-color: #f7e699;
+    color: black;
+}
+
+#pauseButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px; /* Ajuste o padding conforme necessário */
+    background: transparent; /* Torna o fundo do botão transparente */
+    border: none; /* Remove a borda */
+    cursor: pointer;
+}
+
+.icon {
+    width: 50px; /* Ajuste o tamanho do ícone */
+    height: auto; /* Mantém a proporção do ícone */
+}
+
+#pauseButton:hover .icon {
+    /* Estilização ao passar o mouse, se necessário */
+    filter: brightness(0.8); /* Altera a cor do ícone quando em hover */
+}
+
+#mensagem-mudanca {
+    display: none;
+    flex-direction: column; /* Mantenha a direção vertical */
+    align-items: flex-start; /* Alinhamento à esquerda */
+    justify-content: flex-start; /* Alinhamento no topo */
+    width: 500px; /* Largura fixa */
+    height: 320px; /* Altura fixa para manter o formato quadrado */
+    z-index: 2; /* Para ficar acima do fundo com blur */
+    background-color: rgba(204, 204, 204, 0.7); /* Cor de fundo com transparência */
+    border-radius: 15px; /* Bordas arredondadas, se desejar */
+    padding: 20px; /* Espaçamento interno */
+    position: relative; /* Para poder usar posições absolutas internas */
+    transform: translateX(-60%);
+}
+
+#mensagem-mudanca h1 {
+    font-size: 2rem; /* Tamanho da fonte */
+    color: #ffffff; /* Cor do texto */
+    text-shadow: 2px 2px 4px #08148397; /* Sombra do texto */
+    margin: 0; /* Remove margens para controle total da posição */
+    position: absolute; /* Permite o posicionamento em relação ao container */
+    margin-top: 10%;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#mensagem-mudanca img {
+    width: 200px; /* Ajuste o tamanho da imagem do Vilura conforme necessário */
+    position: absolute; /* Permite o posicionamento em relação ao container */
+    bottom: 10px; /* Ajuste a posição vertical */
+    left: 350px; /* Ajuste a posição horizontal */
+}
+#fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    display: none; 
+}
+
+#botao-mudar-fase {
+    font-family:cursive;
+    padding: 10px 20px;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute; 
+    bottom: 80px; 
+    left: 70px; 
+    border: none;
+    border-radius: 15px;
+    background-color: #081483;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+#botao-mudar-fase:hover {
+    font-family: cursive;
+    background-color: #f7e699;
+    color: black;
+}

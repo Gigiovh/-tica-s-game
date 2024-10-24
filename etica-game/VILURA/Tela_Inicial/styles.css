@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 0%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('img/fundo.png') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+   /* Espaço para afastar do canto da tela */
+}
+
+.title {
+    margin-top: 0px;
+    text-align: center;
+    font-size: 4rem; /* Aumentei o tamanho da fonte */
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-family: cursive;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.new-game-button {
+    font-family: cursive;
+    font-size: 1.5rem; /* Aumentei o tamanho do botão */
+    padding: 15px 30px; /* Ajustei o tamanho do botão */
+    border: none;
+    border-radius: 15px;
+    background-color: #081483;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.new-game-button:hover {
+    background-color: #f7e699;
+    color: black;
+    font-family: cursive;
+}
+
+.alien-image {
+    position: absolute;
+    bottom: 20px;
+    left: 300px;
+    width: auto; /* Ajuste o tamanho conforme necessário */
+    height: 250px;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .title {
+        font-size: 6rem;
+    }
+
+    .new-game-button {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+    }
+
+    .alien-image {
+        left: 70%;
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 4rem;
+        margin-top: 10vh;
+    }
+
+    .new-game-button {
+        font-size: 1.2rem;
+        padding: 8px 16px;
+    }
+
+    .alien-image {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 3rem;
+        margin-top: 5vh;
+    }
+
+    .new-game-button {
+        font-size: 1rem;
+        padding: 6px 12px;
+    }
+
+    .alien-image {
+        width: 200px;
+    }
+}

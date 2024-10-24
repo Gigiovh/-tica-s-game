@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>- Fase 1</title>
+    <link rel="stylesheet" href="fase1.css">
+</head>
+<body>
+    <div class="fase1" id="fase1">
+        <div class="blur-background" id="blurBackground"></div>
+        <div class="start-container">
+            <h1>Recolha o lixo para salvar o Lucca</h1>
+            <img src="img1/lucca.png" alt="Vilura" class="vilura" style="height: 170px; width: auto;">
+            <button id="startButton">Iniciar</button>
+        </div>
+        <p>Bem-vindo à Fase 1!</p>
+    </div>
+    <div class="score" id="score">Pontuação: 0</div>
+    <div class="game-container" style="display: none;">
+        <img src="img1/jp.png" alt="Vilura" class="vilura" id="vilura">
+        <button id="pauseButton">
+            <img src="pause-icon.webp" alt="Pausar" class="icon">
+        </button>
+        <div class="falling-fish" id="peixe1" style="background-image: url('img1/peixe1.png');"></div>
+        <div class="falling-fish" id="peixe2" style="background-image: url('img1/peixe2.png');"></div>
+        <div class="falling-litter" id="lixo1"></div>
+        <div class="falling-litter" id="lixo2"></div>
+        <div class="falling-litter" id="lixo3"></div>
+    </div>    
+    <div class="tela">
+        <div id="fundo"></div>
+        <div id="mensagem-mudanca">
+            <h1>Você salvou Lucca! Mas ainda não acabou..</h1>
+            <img src="../img/luca_feliz.png" alt="Vilura" class="vilura" style="height: 170px; width: auto;">
+            <button id="botao-mudar-fase">Continuar</button>
+        </div>
+    </div>
+    <script src="fase1.js"></script>
+</body>
+</html>
