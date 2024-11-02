@@ -1,58 +1,60 @@
 <html>
-    <head>
-        <style>
-            @font-face {
+<head>
+    <style>
+        @font-face {
             font-family: B04;
             src: url("assets/04B.ttf");
-            }
+        }
 
-            body{
-                margin: 0%;
-                background: url(./assets/fundo.png) no-repeat center center fixed ;
-               
-                background-size: cover;
-                position: relative;
-            }
-            .container{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                position: fixed;
-            }
-            .game{
-                background-color: rgba(0, 0, 0, 0.367);
-                width: 100%;
-                height: auto;
-                font-family: cursive;
-                color: #fff;
-                position: relative;
-            }
-
-            .trashBins{
-                margin: 0px;
-                display: flex;
-                justify-content: center;
-                gap: 24px;
-            }
-            h4{
-                margin-left: 5%;
-            }
-            h3{
-                text-align: center;
-            }
-            .trash{
-                display: flex;
-                justify-content: center;
-                margin-bottom: 300px;
-            }
-            .trash img{
-                padding: 8px;
-                border-radius: 15px;
-                border: 2px solid #fdfafa;
-            }
-            .gameOver p{
-            font-family:cursive;
+        body {
+            margin: 0;
+            background: url(./assets/fundo.png) no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+        }
+        .game {
+            background-color: rgba(0, 0, 0, 0.367);
+            width: 100%;
+            height: auto;
+            font-family: cursive;
+            color: #fff;
+            position: relative;
+        }
+        .trashBins img {
+            height: 200px;
+        }
+        .trashBins {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+        h4 {
+            margin-left: 5%;
+        }
+        h3 {
+            text-align: center;
+        }
+        .trash {
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 210px;
+        }
+        .trash img {
+            padding: 8px;
+            border-radius: 15px;
+            border: 2px solid #fdfafa;
+        }
+        .gameOver p {
+            font-family: cursive;
             padding: 10px 20px;
             font-size: 30px;
             cursor: pointer;
@@ -64,83 +66,86 @@
             background-color: #fdfafa;
             color: #081483;
             transition: background-color 0.3s;
-            }
-            .gameOver h1{
-                font-size: 2rem;
-                color: #ffffff;
-                text-shadow: 2px 2px 4px #00000097;  
-                margin: 0; 
-                position: absolute; 
-                margin-top: 10%;
-                margin-left: 10%;
-                text-align: center;
-                align-items: center;
-                font-family: Georgia, 'Times New Roman', Times, serif;
-            }
+        }
+        .gameOver h1 {
+            font-size: 2rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px #00000097;  
+            margin: 0; 
+            position: absolute; 
+            margin-top: 10%;
+            margin-left: 10%;
+            text-align: center;
+            align-items: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .gameOver {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #08148397;
+            border-radius: 15px;
+            width: 500px; 
+            height: 320px;
+            text-align: center;
+        }
+        .julia {
+            position: absolute;
+            bottom: 20px;
+            left: 70%;
+            width: 200px;
+            height: auto;
+            transform: translateX(-50%);
+        }
+        .gameOver p {
+            color: #081483;
+            margin-top: 30%;
+            cursor: pointer;
+        }
+        
+        #pauseButton {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            height: 50px;
+            width: auto;
+            padding: 10px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="game">
+            <div>
+                <h4 style="font-family: Arial, Helvetica, sans-serif; position: absolute; margin: 0%; margin-left: 30px; font-size: 2rem; color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Pontuação: 20</h4>
+                <button id="pauseButton">
+                    <img src="assets/pause-icon.webp" alt="Pausar" class="icon" style="height: 50px;">
+                </button>
+                <h3>5</h3>
+            </div>
+            <div class="trash">
+                <img src="assets/trash/plastic/3.png">
+            </div>
+            <div class="trashBins">
+                <img name="glass"     src="assets/bin1.png">
+                <img name="hazardous" src="assets/bin2.png">
+                <img name="metal"     src="assets/bin3.png">
+                <img name="paper"     src="assets/bin4.png">
+                <img name="plastic"   src="assets/bin5.png">
+                <img name="organic"   src="assets/bin6.png">
+            </div>
 
-            .gameOver{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%,-50%);
-                background-color: #333;
-                background-color: #08148397;
-                border-radius: 15px;
-                width: 500px; 
-                height: 320px;
-                text-align: center;
-            }
-            .julia{
-                position: absolute;
-                bottom: 20px;
-                left: 70%;
-                width: 200px;
-                height: auto;
-                transform: translateX(-50%);
-            }
-            .gameOver p{
-                color: #081483;
-                margin-top: 30%;
-                cursor: pointer;
-            }
-            
-            
-        </style>
-    </head>
-    
-    <body>
-        <div class="container">
-            <div class="game">
-                <div>
-                    <h4 style=" 
-                    font-family: Arial, Helvetica, sans-serif; position: absolute;
-                    margin: 0%;
-                    margin-left: 30px;
-                    font-size: 2rem;
-                    color: #ffffff;
-                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Pontuação: 20</h4>
-                    <h3>5</h3>
-                </div>
-                <div class="trash">
-                    <img src="assets/trash/plastic/3.png">
-                </div>
-                <div class="trashBins">
-                    <img name="glass"     src="assets/bin1.png">
-                    <img name="hazardous" src="assets/bin2.png">
-                    <img name="metal"     src="assets/bin3.png">
-                    <img name="paper"     src="assets/bin4.png">
-                    <img name="plastic"   src="assets/bin5.png">
-                    <img name="organic"   src="assets/bin6.png">
-                </div>
-
-                <div class="gameOver">
-                    <h1>Game Over!</h1>
-                    <img class="julia" src="assets/julia costas.png">
-                    <p id="replayBtn">Recomeçar</p>
-                </div>
-
+            <div class="gameOver">
+                <h1>Game Over!</h1>
+                <img class="julia" src="assets/julia costas.png">
+                <p id="replayBtn">Recomeçar</p>
             </div>
         </div>
-        <script src="main.js"></script>
-    </body>
+    </div>
+    <script src="main.js"></script>
+</body>
 </html>
