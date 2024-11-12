@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,10 @@
     <!-- Cabeçalho com o Timer e o contador de elementos restantes -->
     <div id="header">
         <div id="remaining">Restantes: 10</div>
-        <div id="timer">10 s</div>
+        <div id="timer">20 s</div>
+        <button id="pauseButton">
+            <img src="pause-icon.webp" alt="Pausar" class="icon">
+        </button>
     </div>
 
     <!-- Área do conteúdo principal -->
@@ -20,11 +23,12 @@
     </div>
 
     <div id="successWrapper">
-        <div id="successMessage">Boa!! Você recolheu todo resíduo que estava escondido no fundo do mar... agora vamos separar corretamente todo esse lixo...</div>
+        <div id="successMessage">Parabéns! Você recolheu todo lixo que estava escondido no fundo do mar.</div>
     </div>
 
     <!-- Botões -->
     <button id="retryButton" onclick="retryGame()">Tentar Novamente</button>
+    
     <button id="nextLevelButton" onclick="goToNextLevel()">Próxima Fase <i>➔</i></button>
 
     <script src="fase2.js"></script>

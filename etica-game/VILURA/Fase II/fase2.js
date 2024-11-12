@@ -20,13 +20,13 @@ function createClickableElements() {
     const positions = [
         { top: 615, left: 50 },
         { top: 630, left: 300 },
-        { top: 250, left: 5 },
+        { top: 350, left: 5 },
         { top: 600, left: 700 },
-        { top: 620, left: 1200 },
+        { top: 200, left: 1200 },
         { top: 500, left: 1000 },
         { top: 610, left: 910 },
         { top: 530, left: 600 },
-        { top: 100, left: 1800 },
+        { top: 90, left: 1800 },
         { top: 450, left: 870 }
     ];
 
@@ -92,7 +92,7 @@ function updateRemainingCounter() {
 
 // Função para iniciar o timer
 function startTimer() {
-    let secondsLeft = 10;
+    let secondsLeft = 20;
     const timerElement = document.getElementById('timer');
 
     const countdown = setInterval(function () {
@@ -118,9 +118,10 @@ function checkTimerCondition() {
 function showSuccessMessage() {
     const successMessage = document.getElementById('successMessage');
     const timerElement = document.getElementById('timer');
+    const nextButton = document.getElementById('nextLevelButton');
     successMessage.style.display = 'block';
     timerElement.style.display = 'none';
-    document.getElementById('nextLevelButton').style.display = 'block'; // Exibe o botão "Próxima Fase"
+    nextButton.style.display = 'block'; // Exibe o botão "Próxima Fase"
 }
 
 // Função para reiniciar o jogo
@@ -131,8 +132,9 @@ function retryGame() {
 // Função para avançar para a próxima fase
 function goToNextLevel() {
     // Redireciona para a pasta "Fase III" e abre o arquivo fase3.html
-    window.location.href = '../Fase III/fase3.html';  // Caminho relativo para a pasta "Fase III"
+    window.location.href = '../Fase III/index.html';  // Caminho relativo para a pasta "Fase III"
 }
+
 
 // Inicia o jogo
 createClickableElements();

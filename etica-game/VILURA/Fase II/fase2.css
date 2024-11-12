@@ -129,12 +129,30 @@ body {
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
 }
 
 /* Estilo da seta */
 #nextLevelButton i {
     margin-left: 8px;
     font-size: 24px;
+}
+
+
+#pauseButton {
+    padding: 10px; /* Ajuste o padding conforme necessário */
+    background: transparent; /* Torna o fundo do botão transparente */
+    border: none; /* Remove a borda */
+    cursor: pointer;
+}
+
+.icon {
+    width: 40px; /* Ajuste o tamanho do ícone */
+    height: auto; /* Mantém a proporção do ícone */
+}
+
+#pauseButton:hover .icon {
+    /* Estilização ao passar o mouse, se necessário */
+    filter: brightness(0.8); /* Altera a cor do ícone quando em hover */
 }
