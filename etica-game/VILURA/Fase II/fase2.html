@@ -3,10 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>♻️ Vilura - Fase 2</title>
+    <link rel="stylesheet" href="fase2.css">
 </head>
 <body>
-    <h1>fase 2 - Hidden Object - 5min max</h1>
-    <p>Continuar a programação aqui.</p>
+
+    <!-- Cabeçalho com o Timer e o contador de elementos restantes -->
+    <div id="header">
+        <div id="remaining">Restantes: 10</div>
+        <div id="timer">10 s</div>
+    </div>
+
+    <!-- Área do conteúdo principal -->
+    <div id="content">
+        <!-- Os elementos clicáveis serão gerados aqui -->
+    </div>
+
+    <div id="successWrapper">
+        <div id="successMessage">Boa!! Você recolheu todo resíduo que estava escondido no fundo do mar... agora vamos separar corretamente todo esse lixo...</div>
+    </div>
+
+    <!-- Botões -->
+    <button id="retryButton" onclick="retryGame()">Tentar Novamente</button>
+    <button id="nextLevelButton" onclick="goToNextLevel()">Próxima Fase <i>➔</i></button>
+
+    <script src="fase2.js"></script>
 </body>
 </html>

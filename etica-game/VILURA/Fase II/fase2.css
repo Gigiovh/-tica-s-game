@@ -1,0 +1,140 @@
+
+/* Configura o fundo da página para ocupar 100% da largura e altura */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('Fase 2 - background.png') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #44689c;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Estilo do cabeçalho (menu superior) */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+/* Estilo para o timer dentro do cabeçalho */
+#timer {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Estilo para o contador de elementos restantes */
+#remaining {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    width: 50px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Estilo para o conteúdo principal */
+#content {
+    padding-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilo para os elementos clicáveis */
+.clickable {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    transition: opacity 0.3s ease-out;
+    position: absolute;
+}
+
+/* Estilo para a mensagem de sucesso */
+#successMessage {
+    display: none;
+    font-size: 32px;
+    font-weight: bold;
+    color: green;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px 40px;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 1000;
+}
+
+/* Wrapper para a mensagem de sucesso */
+#successWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para o botão de "Tentar Novamente" */
+#retryButton {
+    display: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1100;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Estilo para o botão de "Próxima Fase" com a seta */
+#nextLevelButton {
+    display: none; /* Inicialmente escondido */
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1100;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo da seta */
+#nextLevelButton i {
+    margin-left: 8px;
+    font-size: 24px;
+}
