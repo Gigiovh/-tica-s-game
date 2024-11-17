@@ -6,26 +6,29 @@
 
 
 <p>Este jogo tem como objetivo consetizar as crianças sobre o ciclo do lixo de forma ética e sustentável <span style="color:#ffb301"> ♻️</span></p></div>
-
-<h3 style="color: #e4a002">Personagens ♡ </h3>
- <table>
-  <tr>
-    <td align="center">
+  <br>
+<h3 style="color: #e4a002" align="center" >Personagens ♡ </h3>
+ <table align="center" >
+  <tr align="center" >
+    <td align="center" gap="30px">
     <img src="etica-game/VILURA/img/2024-09-28 09.31.11.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 1"/>
-      <br /><small>Júlia</small>
+      <br /><small>Julia</small>
     </td>
     <td align="center">
-      <img src="https://github.com/Gigiovh.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 2"/>
-      <br /><small>Desenvolvedora</small>
+     <br><br><br>
+      <img src="etica-game/VILURA/img/g-removebg-preview.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 2"/>
+      <br /><small>Luca</small>
     </td>
   </tr>
  </table>
-<h3>Linguagens Utilizadas</h3>
+ <hr><br>
+<h3  >Linguagens Utilizadas</h3>
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=html,css,javascript" />
   </a>
-
-<h2>🧑‍💻 Autores</h2>
+<br>
+<br>
+<h2 >🧑‍💻 Autores</h2>
 <table>
   <tr>
     <td align="center">
