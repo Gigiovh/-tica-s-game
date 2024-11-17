@@ -11,7 +11,7 @@
  <table align="center" >
   <tr align="center" >
     <td align="center" gap="30px">
-    <img src="etica-game/VILURA/img/2024-09-28 09.31.11.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 1"/>
+    <img src="etica-game/VILURA/img/2024-09-25 20.32.14.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 1"/>
       <br /><small>Julia</small>
     </td>
     <td align="center">
