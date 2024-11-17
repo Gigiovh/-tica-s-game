@@ -59,12 +59,12 @@ body {
 
 /* Estilo para os elementos clicáveis */
 .clickable {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 8%;
     cursor: pointer;
     text-align: center;
     font-size: 18px;
@@ -140,19 +140,75 @@ body {
 }
 
 
+/* Estilo para o botão de pausa */
 #pauseButton {
-    padding: 10px; /* Ajuste o padding conforme necessário */
-    background: transparent; /* Torna o fundo do botão transparente */
-    border: none; /* Remove a borda */
+    background: none;
+    border: none;
     cursor: pointer;
 }
 
 .icon {
-    width: 40px; /* Ajuste o tamanho do ícone */
-    height: auto; /* Mantém a proporção do ícone */
+    width: 30px;
+    height: 30px;
 }
 
 #pauseButton:hover .icon {
     /* Estilização ao passar o mouse, se necessário */
     filter: brightness(0.8); /* Altera a cor do ícone quando em hover */
 }
+
+/* Estilo para o overlay */
+#overlay {
+    position: fixed;   /* Faz o overlay cobrir toda a tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Cor preta com 50% de transparência */
+    display: none;  /* Inicialmente escondido */
+    z-index: 999;   /* Garante que o overlay fique sobre os outros elementos */
+}
+
+/* Ajuste responsivo para telas menores */
+@media screen and (max-width: 768px) {
+    /* Aumenta a área de clique dos elementos e reduz o tamanho das fontes */
+
+    #timer, #remaining {
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+
+    #retryButton, #nextLevelButton {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    #pauseButton .icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Ajuste para telas menores ainda (celulares) */
+@media screen and (max-width: 480px) {
+    /* Os elementos clicáveis ficam maiores em telas pequenas */
+
+    #header {
+        padding: 0 5px;
+    }
+
+    #timer, #remaining {
+        font-size: 12px;  /* Fontes menores em telas pequenas */
+    }
+
+    #retryButton, #nextLevelButton {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    #pauseButton .icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+
