@@ -1,7 +1,7 @@
 
 
 <div align="center">
-<img src="https://github.com/Gigiovh/-tica-s-game/blob/main/etica-game/VILURA/img/2024-09-28%2009.31.11.png" alt="logo"  height="100px">
+<img src="etica-game/VILURA/img/2024-09-28 09.31.11.png" alt="logo"  height="100px">
 <h1 align="center">Ética's Game</h1>
 
 
@@ -11,7 +11,7 @@
  <table>
   <tr>
     <td align="center">
-    <img src="https://github.com/beaxx.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 1"/>
+    <img src="etica-game/VILURA/img/2024-09-28 09.31.11.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 1"/>
       <br /><small>Júlia</small>
     </td>
     <td align="center">
