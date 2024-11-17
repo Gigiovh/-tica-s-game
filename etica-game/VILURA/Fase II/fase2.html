@@ -8,6 +8,9 @@
 </head>
 <body>
 
+    <!-- Overlay para escurecer a tela quando o jogo for pausado -->
+    <div id="overlay"></div>
+
     <!-- Cabeçalho com o Timer e o contador de elementos restantes -->
     <div id="header">
         <div id="remaining">Restantes: 10</div>
@@ -28,7 +31,6 @@
 
     <!-- Botões -->
     <button id="retryButton" onclick="retryGame()">Tentar Novamente</button>
-    
     <button id="nextLevelButton" onclick="goToNextLevel()">Próxima Fase <i>➔</i></button>
 
     <script src="fase2.js"></script>
