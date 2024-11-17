@@ -7,8 +7,19 @@
 
 <p>Este jogo tem como objetivo consetizar as crianças sobre o ciclo do lixo de forma ética e sustentável <span style="color:#ffb301"> ♻️</span></p></div>
 
-<h3 style="color: #e4a002">Paleta de cores</h3>
- <img src="#" alt="paleta de cor" width="450px">
+<h3 style="color: #e4a002">Personagens ♡ </h3>
+ <table>
+  <tr>
+    <td align="center">
+    <img src="https://github.com/beaxx.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 1"/>
+      <br /><small>Júlia</small>
+    </td>
+    <td align="center">
+      <img src="https://github.com/Gigiovh.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 2"/>
+      <br /><small>Desenvolvedora</small>
+    </td>
+  </tr>
+ </table>
 <h3>Linguagens Utilizadas</h3>
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=html,css,javascript" />
