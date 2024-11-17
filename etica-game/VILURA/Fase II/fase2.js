@@ -1,142 +1,212 @@
-const images = [
-    'garrafa.png', 
-    'garrafa.png', 
-    'garrafa.png', 
-    'garrafa.png', 
-    'garrafa.png', 
-    'garrafa.png', 
-    'garrafa.png', 
-    'garrafa.png', 
-    'garrafa.png', 
-    'garrafa.png'
-];
 
-let clickedElements = 0;
-const totalElements = images.length;
-let timerEnded = false;
-
-// Função para criar os elementos clicáveis
-function createClickableElements() {
-    const positions = [
-        { top: 615, left: 50 },
-        { top: 630, left: 300 },
-        { top: 350, left: 5 },
-        { top: 600, left: 700 },
-        { top: 200, left: 1200 },
-        { top: 500, left: 1000 },
-        { top: 610, left: 910 },
-        { top: 530, left: 600 },
-        { top: 90, left: 1800 },
-        { top: 450, left: 870 }
-    ];
-
-    const maxTop = window.innerHeight - 70;
-    const maxLeft = window.innerWidth - 70;
-
-    positions.forEach(pos => {
-        pos.top = Math.min(pos.top, maxTop);
-        pos.left = Math.min(pos.left, maxLeft);
-
-        let element = document.createElement('div');
-        element.classList.add('clickable');
-
-        const randomImage = images[Math.floor(Math.random() * images.length)];
-
-        const imgElement = document.createElement('img');
-        imgElement.src = randomImage;
-        imgElement.alt = 'Imagem Clicável';
-        imgElement.style.width = '100%';
-        imgElement.style.height = '100%';
-        imgElement.style.objectFit = 'cover';
-
-        element.appendChild(imgElement);
-        element.style.top = pos.top + 'px';
-        element.style.left = pos.left + 'px';
-
-        element.onclick = function () {
-            hideElement(element);
-            incrementClickedCount();
-        };
-
-        document.getElementById('content').appendChild(element);
-    });
+/* Configura o fundo da página para ocupar 100% da largura e altura */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('Fase 2 - background.png') no-repeat center center fixed;
+    background-size: cover;
+    background-color: #44689c;
+    overflow: hidden;
+    min-height: 100vh;
 }
 
-// Função para esconder o elemento
-function hideElement(element) {
-    element.style.opacity = 0;
-    setTimeout(function () {
-        element.style.display = 'none';
-    }, 300);
+/* Estilo do cabeçalho (menu superior) */
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
 }
 
-// Função para incrementar o contador de elementos clicados
-function incrementClickedCount() {
-    clickedElements++;
-    updateRemainingCounter();
-    checkSuccessCondition();
+/* Estilo para o timer dentro do cabeçalho */
+#timer {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
 }
 
-// Função para verificar se todos os elementos foram clicados
-function checkSuccessCondition() {
-    if (clickedElements === totalElements) {
-        showSuccessMessage();
+/* Estilo para o contador de elementos restantes */
+#remaining {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    width: 50px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Estilo para o conteúdo principal */
+#content {
+    padding-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilo para os elementos clicáveis */
+.clickable {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8%;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    transition: opacity 0.3s ease-out;
+    position: absolute;
+}
+
+/* Estilo para a mensagem de sucesso */
+#successMessage {
+    display: none;
+    font-size: 32px;
+    font-weight: bold;
+    color: green;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px 40px;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 1000;
+}
+
+/* Wrapper para a mensagem de sucesso */
+#successWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para o botão de "Tentar Novamente" */
+#retryButton {
+    display: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1100;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Estilo para o botão de "Próxima Fase" com a seta */
+#nextLevelButton {
+    display: none; /* Inicialmente escondido */
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1100;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* display: flex;
+    align-items: center; */
+}
+
+/* Estilo da seta */
+#nextLevelButton i {
+    margin-left: 8px;
+    font-size: 24px;
+}
+
+
+/* Estilo para o botão de pausa */
+#pauseButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+#pauseButton:hover .icon {
+    /* Estilização ao passar o mouse, se necessário */
+    filter: brightness(0.8); /* Altera a cor do ícone quando em hover */
+}
+
+/* Estilo para o overlay */
+#overlay {
+    position: fixed;   /* Faz o overlay cobrir toda a tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Cor preta com 50% de transparência */
+    display: none;  /* Inicialmente escondido */
+    z-index: 999;   /* Garante que o overlay fique sobre os outros elementos */
+}
+
+/* Ajuste responsivo para telas menores */
+@media screen and (max-width: 768px) {
+    /* Aumenta a área de clique dos elementos e reduz o tamanho das fontes */
+
+    #timer, #remaining {
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+
+    #retryButton, #nextLevelButton {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    #pauseButton .icon {
+        width: 24px;
+        height: 24px;
     }
 }
 
-// Função para atualizar o contador de elementos restantes
-function updateRemainingCounter() {
-    const remainingElement = document.getElementById('remaining');
-    remainingElement.textContent = `Restantes: ${totalElements - clickedElements}`;
-}
+/* Ajuste para telas menores ainda (celulares) */
+@media screen and (max-width: 480px) {
+    /* Os elementos clicáveis ficam maiores em telas pequenas */
 
-// Função para iniciar o timer
-function startTimer() {
-    let secondsLeft = 20;
-    const timerElement = document.getElementById('timer');
+    #header {
+        padding: 0 5px;
+    }
 
-    const countdown = setInterval(function () {
-        secondsLeft--;
-        timerElement.textContent = `${secondsLeft} s`;
+    #timer, #remaining {
+        font-size: 12px;  /* Fontes menores em telas pequenas */
+    }
 
-        if (secondsLeft <= 0) {
-            clearInterval(countdown);
-            timerEnded = true;
-            checkTimerCondition();
-        }
-    }, 1000);
-}
+    #retryButton, #nextLevelButton {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
 
-// Função para checar o estado do timer
-function checkTimerCondition() {
-    if (timerEnded && clickedElements < totalElements) {
-        document.getElementById('retryButton').style.display = 'block';
+    #pauseButton .icon {
+        width: 22px;
+        height: 22px;
     }
 }
-
-// Função para exibir a mensagem de sucesso
-function showSuccessMessage() {
-    const successMessage = document.getElementById('successMessage');
-    const timerElement = document.getElementById('timer');
-    const nextButton = document.getElementById('nextLevelButton');
-    successMessage.style.display = 'block';
-    timerElement.style.display = 'none';
-    nextButton.style.display = 'block'; // Exibe o botão "Próxima Fase"
-}
-
-// Função para reiniciar o jogo
-function retryGame() {
-    location.reload();
-}
-
-// Função para avançar para a próxima fase
-function goToNextLevel() {
-    // Redireciona para a pasta "Fase III" e abre o arquivo fase3.html
-    window.location.href = '../Fase III/index.html';  // Caminho relativo para a pasta "Fase III"
-}
-
-
-// Inicia o jogo
-createClickableElements();
-startTimer();
-
