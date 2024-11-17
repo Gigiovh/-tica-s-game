@@ -63,7 +63,7 @@
      </td>
      <td align="center">
       <img src="https://github.com/Julia-Khristina/EscapEtec/blob/main/readme/9.jpg" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 3"/>
-      <br /><a href="assets/Captura de tela 2024-10-09 204242.png"><b>Yan/b></a>
+      <br /><a href="assets/Captura de tela 2024-10-09 204242.png"><b>Yan</b></a>
       <br /><small>Desenvolvedor</small>
      </td>
   </tr>
