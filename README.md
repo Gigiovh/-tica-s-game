@@ -1,7 +1,7 @@
 
 
 <div align="center">
-<img src="img/loguis-removebg-preview.png" alt="logo" width="200px">
+<img src="https://github.com/Gigiovh/-tica-s-game/blob/main/etica-game/VILURA/img/2024-09-28%2009.31.11.png" alt="logo" width="200px">
 <h1 align="center">Ética's Game</h1>
 
 
