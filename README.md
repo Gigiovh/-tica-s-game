@@ -34,19 +34,14 @@
     </td>
      <td align="center">
       <img src="https://github.com/Gigiovh/-tica-s-game/blob/main/assets/Captura%20de%20tela%202024-10-09%20204242.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 3"/>
-      <br /><a href="#"><b>Maria Eduarda</b></a>
+      <br /><a href="#"><b>Laura Letícia</b></a>
       <br /><small>Desenvolvedora</small>
     </td>
      <td align="center">
       <img src="https://github.com/Julia-Khristina/EscapEtec/blob/main/readme/9.jpg" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 3"/>
       <br /><a href="https://github.com/LucasGanan"><b>Lucas Ganan</b></a>
       <br /><small>Desenvolvedor</small>
-    </td>
-     <td align="center">
-      <img src="https://github.com/Gigiovh/-tica-s-game/blob/main/assets/ChocoCapi%E2%80%99s.jpg" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 3"/>
-      <br /><a href="#"><b>Yan Neves</b></a>
-      <br /><small>Desenvolvedor</small>
-    </td>
+     </td>
   </tr>
 </table>
   
