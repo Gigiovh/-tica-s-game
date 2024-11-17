@@ -1,212 +1,179 @@
+const images = [
+    'garrafa.png', 
+    'sacola.png', 
+    'lata.png', 
+    'pneu.png', 
+    'colher.png', 
+    'rede.png', 
+    'pneu.png', 
+    'garrafa.png', 
+    'colher.png', 
+    'sacola.png',
+    'colher.png',
+    'lata.png',
+    'pneu.png',
+    'lata.png',
+    'pneu.png'
+];
 
-/* Configura o fundo da página para ocupar 100% da largura e altura */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url('Fase 2 - background.png') no-repeat center center fixed;
-    background-size: cover;
-    background-color: #44689c;
-    overflow: hidden;
-    min-height: 100vh;
+let clickedElements = 0;
+const totalElements = images.length;
+let timerEnded = false;
+let gamePaused = false;  // Variável para controlar o estado de pausa
+let countdown;           // Variável para armazenar o intervalo do timer
+
+// Função para criar os elementos clicáveis
+function createClickableElements() {
+    const positions = [
+        { top: 615, left: 50 },
+        { top: 630, left: 300 },
+        { top: 350, left: 5 },
+        { top: 700, left: 700 },
+        { top: 200, left: 1200 },
+        { top: 500, left: 1000 },
+        { top: 810, left: 910 },
+        { top: 530, left: 600 },
+        { top: 90, left: 800 },
+        { top: 450, left: 870 },
+    
+        // Novas posições ajustadas para as últimas 5
+        { top: 950, left: 400 },    // Ajuste para não se sobrepor com as anteriores
+        { top: 200, left: 1200 },   // Nova posição para maior espaçamento
+        { top: 450, left: 800 },   // Mais afastado à direita
+        { top: 350, left: 500 },   // Mais para cima e à direita
+        { top: 100, left: 100 }    // Posição mais para a direita e acima
+    ];
+    
+
+    const maxTop = window.innerHeight - 70;
+    const maxLeft = window.innerWidth - 70;
+
+    positions.forEach(pos => {
+        pos.top = Math.min(pos.top, maxTop);
+        pos.left = Math.min(pos.left, maxLeft);
+
+        let element = document.createElement('div');
+        element.classList.add('clickable');
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+
+        const imgElement = document.createElement('img');
+        imgElement.src = randomImage;
+        imgElement.alt = 'Imagem Clicável';
+        imgElement.style.width = '100%';
+        imgElement.style.height = '100%';
+        imgElement.style.objectFit = 'cover';
+
+        element.appendChild(imgElement);
+        element.style.top = pos.top + 'px';
+        element.style.left = pos.left + 'px';
+
+        // Se o jogo estiver pausado, desabilitamos o evento de clique
+        element.onclick = function () {
+            if (!gamePaused) {  // Só permite clicar se o jogo não estiver pausado
+                hideElement(element);
+                incrementClickedCount();
+            }
+        };
+
+        document.getElementById('content').appendChild(element);
+    });
 }
 
-/* Estilo do cabeçalho (menu superior) */
-#header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    z-index: 1000;
+// Função para esconder o elemento
+function hideElement(element) {
+    element.style.opacity = 0;
+    setTimeout(function () {
+        element.style.display = 'none';
+    }, 300);
 }
 
-/* Estilo para o timer dentro do cabeçalho */
-#timer {
-    font-size: 32px;
-    font-weight: bold;
-    color: white;
+// Função para incrementar o contador de elementos clicados
+function incrementClickedCount() {
+    clickedElements++;
+    updateRemainingCounter();
+    checkSuccessCondition();
 }
 
-/* Estilo para o contador de elementos restantes */
-#remaining {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    width: 50px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-/* Estilo para o conteúdo principal */
-#content {
-    padding-top: 80px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-}
-
-/* Estilo para os elementos clicáveis */
-.clickable {
-    width: 65px;
-    height: 65px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8%;
-    cursor: pointer;
-    text-align: center;
-    font-size: 18px;
-    transition: opacity 0.3s ease-out;
-    position: absolute;
-}
-
-/* Estilo para a mensagem de sucesso */
-#successMessage {
-    display: none;
-    font-size: 32px;
-    font-weight: bold;
-    color: green;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px 40px;
-    border-radius: 20px;
-    position: absolute;
-    z-index: 1000;
-}
-
-/* Wrapper para a mensagem de sucesso */
-#successWrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Estilo para o botão de "Tentar Novamente" */
-#retryButton {
-    display: none;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: #ff6f61;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    position: absolute;
-    z-index: 1100;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Estilo para o botão de "Próxima Fase" com a seta */
-#nextLevelButton {
-    display: none; /* Inicialmente escondido */
-    font-size: 20px;
-    font-weight: bold;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    position: absolute;
-    z-index: 1100;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* display: flex;
-    align-items: center; */
-}
-
-/* Estilo da seta */
-#nextLevelButton i {
-    margin-left: 8px;
-    font-size: 24px;
-}
-
-
-/* Estilo para o botão de pausa */
-#pauseButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.icon {
-    width: 30px;
-    height: 30px;
-}
-
-#pauseButton:hover .icon {
-    /* Estilização ao passar o mouse, se necessário */
-    filter: brightness(0.8); /* Altera a cor do ícone quando em hover */
-}
-
-/* Estilo para o overlay */
-#overlay {
-    position: fixed;   /* Faz o overlay cobrir toda a tela */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);  /* Cor preta com 50% de transparência */
-    display: none;  /* Inicialmente escondido */
-    z-index: 999;   /* Garante que o overlay fique sobre os outros elementos */
-}
-
-/* Ajuste responsivo para telas menores */
-@media screen and (max-width: 768px) {
-    /* Aumenta a área de clique dos elementos e reduz o tamanho das fontes */
-
-    #timer, #remaining {
-        font-size: 14px; /* Reduz o tamanho da fonte */
-    }
-
-    #retryButton, #nextLevelButton {
-        font-size: 16px;
-        padding: 8px 16px;
-    }
-
-    #pauseButton .icon {
-        width: 24px;
-        height: 24px;
+// Função para verificar se todos os elementos foram clicados
+function checkSuccessCondition() {
+    if (clickedElements === totalElements) {
+        showSuccessMessage();
     }
 }
 
-/* Ajuste para telas menores ainda (celulares) */
-@media screen and (max-width: 480px) {
-    /* Os elementos clicáveis ficam maiores em telas pequenas */
+// Função para atualizar o contador de elementos restantes
+function updateRemainingCounter() {
+    const remainingElement = document.getElementById('remaining');
+    remainingElement.textContent = `Restantes: ${totalElements - clickedElements}`;
+}
 
-    #header {
-        padding: 0 5px;
-    }
+// Função para iniciar o timer
+function startTimer() {
+    let secondsLeft = 20;
+    const timerElement = document.getElementById('timer');
 
-    #timer, #remaining {
-        font-size: 12px;  /* Fontes menores em telas pequenas */
-    }
+    countdown = setInterval(function () {
+        if (!gamePaused) {  // Só decrementa se o jogo não estiver pausado
+            secondsLeft--;
+            timerElement.textContent = `${secondsLeft} s`;
 
-    #retryButton, #nextLevelButton {
-        font-size: 14px;
-        padding: 6px 12px;
-    }
+            if (secondsLeft <= 0) {
+                clearInterval(countdown);
+                timerEnded = true;
+                checkTimerCondition();
+            }
+        }
+    }, 1000);
+}
 
-    #pauseButton .icon {
-        width: 22px;
-        height: 22px;
+// Função para checar o estado do timer
+function checkTimerCondition() {
+    if (timerEnded && clickedElements < totalElements) {
+        document.getElementById('retryButton').style.display = 'block';
     }
 }
+
+// Função para exibir a mensagem de sucesso
+function showSuccessMessage() {
+    const successMessage = document.getElementById('successMessage');
+    const timerElement = document.getElementById('timer');
+    const nextButton = document.getElementById('nextLevelButton');
+    successMessage.style.display = 'block';
+    timerElement.style.display = 'none';
+    nextButton.style.display = 'block'; // Exibe o botão "Próxima Fase"
+}
+
+// Função para reiniciar o jogo
+function retryGame() {
+    location.reload();
+}
+
+// Função para avançar para a próxima fase
+function goToNextLevel() {
+    window.location.href = '../Fase III/index.html';  // Caminho relativo para a pasta "Fase III"
+}
+
+// Função para pausar o jogo e ativar/desativar o overlay
+function togglePause() {
+    gamePaused = !gamePaused;  // Alterna o estado de pausa
+
+    const pauseButton = document.getElementById('pauseButton');
+    const overlay = document.getElementById('overlay');
+
+    if (gamePaused) {
+        // Mostra o overlay e altera o ícone para "play"
+        overlay.style.display = 'block';
+        pauseButton.innerHTML = `<img src="play-icon.png" alt="Retomar" class="icon">`;
+    } else {
+        // Esconde o overlay e altera o ícone para "pause"
+        overlay.style.display = 'none';
+        pauseButton.innerHTML = `<img src="pause-icon.webp" alt="Pausar" class="icon">`;
+    }
+}
+
+// Adiciona o evento de clique para o botão de pausa
+document.getElementById('pauseButton').addEventListener('click', togglePause);
+
+// Inicia o jogo
+createClickableElements();
+startTimer();
