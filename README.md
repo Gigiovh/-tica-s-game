@@ -52,6 +52,11 @@
       <br /><small>Desenvolvedora</small>
     </td>
      <td align="center">
+      <img src="https://github.com/Julia-Khristina/EscapEtec/blob/main/readme/11.png" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 3"/>
+      <br /><a href="https://github.com/Lale-Araujo"><b>Maria Eduarda</b></a>
+      <br /><small>Desenvolvedora</small>
+    </td>
+     <td align="center">
       <img src="https://github.com/Julia-Khristina/EscapEtec/blob/main/readme/9.jpg" width="100px;" style="border-radius:50%;" alt="Nome do Colaborador 3"/>
       <br /><a href="https://github.com/LucasGanan"><b>Lucas Ganan</b></a>
       <br /><small>Desenvolvedor</small>
