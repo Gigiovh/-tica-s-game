@@ -140,13 +140,51 @@
 	.game h4{
 		font-size:15px;
 	}.trash{
-		heigth:60px;
+		height:60px;
 	}
 	h4{
 		font-size:15px;
 	}
 	}
+    @media (min-width: 1440px) {
+            .game {
+                padding: 20px;
+            }
+
+            .trashBins{
+                height: 400px;
+            }
+            
+
+            
+        }
+@media (min-height: 600px) {
+    
+    .espaco{
+                height: 80px;
+            }
+    .trashbins{
+        
+        height: 800px;
+    }
+    .trashbins img{
+        margin-top: 100px;
+       
+    }
+    .gameover{
+        justify-content: center;
+        align-items: center;
+        display:flex ;
+		margin-top: 0%;
+        margin-bottom: 0%;
+        height:300px;
+		width:40%;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+	}
 }
+
     </style>
 </head>
 <body>
@@ -163,6 +201,7 @@
                 <img src="assets/trash/plastic/3.png">
             </div>
             <div class="trashBins">
+                
                 <img name="glass"     src="assets/bin1.png">
                 <img name="hazardous" src="assets/bin2.png">
                 <img name="metal"     src="assets/bin3.png">
